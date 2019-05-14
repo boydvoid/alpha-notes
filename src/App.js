@@ -16,12 +16,14 @@ function App() {
     var position = ed.getPosition();
     var text = ed.getValue(position);
     var splitedText = text.split("\n");
-    var lineText = splitedText[position.lineNumber - 1];;
+    var lineText = splitedText[position.lineNumber - 1];
     console.log(lineText)
 
     if (lineText.indexOf('*') > -1) {
       let numOfAsterisk = lineText.split("*").length - 1;
       setUnicodeChar(numOfAsterisk)
+      let op = {identifier: {major: 1, minor: 1}, range }
+      ed.executeEdits("my-source", [op])
     }
   }
 
